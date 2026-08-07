@@ -5,8 +5,8 @@ import MagneticLink from '../motion/MagneticLink'
 
 const links = [
   { label: 'Home', to: '/' },
-  { label: 'Studio', to: '/#studio' },
-  { label: 'Projects', to: '/#projects' },
+  { label: 'About', to: '/#studio' },
+  { label: 'Inspires', to: '/#projects' },
   { label: 'Contact', to: '/#contact' },
 ]
 

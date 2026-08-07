@@ -39,7 +39,7 @@ export default function Project() {
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
         >
           <div className="project-hero__meta">
-            <span>{project.num} / 05</span>
+            <span>{project.num} / {String(PROJECTS.length).padStart(2, '0')}</span>
             <span>{project.place}</span>
             <span>{project.status}</span>
           </div>
@@ -50,7 +50,7 @@ export default function Project() {
       <section className="project-body">
         <div className="project-body__intro">
           <span className="eyebrow" style={{ color: 'var(--bronze)' }}>
-            About this project
+            About this destination
           </span>
           <p>{project.summary}</p>
         </div>
@@ -72,14 +72,14 @@ export default function Project() {
       </section>
 
       <Link to={`/projects/${next.slug}`} className="project-next">
-        <span className="eyebrow">Next project</span>
+        <span className="eyebrow">Next destination</span>
         <h2>{next.name}</h2>
         <span className="project-next__arrow">→</span>
       </Link>
 
       <footer className="project-footer">
-        <Link to="/">← Back to OBRA</Link>
-        <span>OBRA © 2026</span>
+        <Link to="/">← Back to Goa Tourism</Link>
+        <span>GOA TOURISM © 2026</span>
       </footer>
     </div>
   )
@@ -87,6 +87,7 @@ export default function Project() {
 
 function GalleryItem({ src, delay }) {
   const ref = useRef(null)
+  const isVideo = /\.(mp4|webm|mov)$/i.test(src)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
@@ -102,10 +103,24 @@ function GalleryItem({ src, delay }) {
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, delay }}
     >
-      <motion.div
-        className="project-gallery__item-bg ph-tone"
-        style={{ backgroundImage: `url(${src})`, y }}
-      />
+      {isVideo ? (
+        <motion.video
+          className="project-gallery__item-bg"
+          style={{ y }}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src={src} />
+        </motion.video>
+      ) : (
+        <motion.div
+          className="project-gallery__item-bg ph-tone"
+          style={{ backgroundImage: `url(${src})`, y }}
+        />
+      )}
     </motion.div>
   )
 }

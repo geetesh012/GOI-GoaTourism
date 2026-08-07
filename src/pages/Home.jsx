@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Nav from '../components/Nav'
 import Menu from '../components/Menu'
+import Footer from '../components/Footer'
 import { useTextReveal } from '../motion/useTextReveal'
 import { useBlockReveal } from '../motion/useBlockReveal'
 import { reduceMotion } from '../motion/tokens'
@@ -95,6 +96,7 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }
@@ -115,21 +117,37 @@ function Hero({ progress }) {
   const bgX = useTransform(progress, [OFFSETS.hero, OFFSETS.philosophy], ['-8%', '8%'])
   return (
     <section className="panel panel--ink hero" id="section-hero">
-      <motion.div
-        className="hero__bg ph-tone"
-        style={{ backgroundImage: `url(${SITE_IMAGES.hero})`, x: bgX }}
-      />
-      <span className="eyebrow hero__eyebrow">OBRA — Est. 2015</span>
+      <motion.div className="hero__bg" style={{ x: bgX }}>
+        {SITE_IMAGES.heroVideo ? (
+          <video
+            className="hero__bg-media"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={SITE_IMAGES.hero}
+          >
+            <source src={SITE_IMAGES.heroVideo} type="video/mp4" />
+          </video>
+        ) : (
+          <div
+            className="hero__bg-media ph-tone"
+            style={{ backgroundImage: `url(${SITE_IMAGES.hero})` }}
+          />
+        )}
+      </motion.div>
+      <span className="eyebrow hero__eyebrow">GOA TOURISM — Est. 1982</span>
       <h1>
-        Homes built
+        Goa,
         <br />
-        to outlive
+        as it's meant
         <br />
-        <em>the moment</em>
+        to be <em>felt</em>
       </h1>
       <p className="hero__sub">
-        In a world saturated with the disposable, we build houses meant to last — considerate of the
-        land, generous with light, and finished to a standard trends can't touch.
+        Beyond the postcard checklist — 450 years of history, coastline that changes character
+        every few kilometres, and a pace of life most places forgot how to keep.
       </p>
       <div className="hero__scroll-cue">
         <span className="bar" />
@@ -149,17 +167,17 @@ function Philosophy({ progress }) {
     <section className="panel panel--stone philosophy" id="section-philosophy">
       <div className="philosophy__text">
         <span className="eyebrow" style={{ color: 'var(--bronze)' }}>
-          Studio
+          Our Approach
         </span>
         <div className="reveal-mask">
           <h2 ref={headingRef}>
-            Rooms that ask you to <em>slow down</em>
+            A state that asks you to <em>slow down</em>
           </h2>
         </div>
         <p ref={bodyRef}>
-          Every home should be as singular as the people who live in it. We work at the edge of
-          aspirational calm, where design, sustainability and daily life meet to make something
-          genuinely exceptional — a place that improves the ordinary hour, not just the special one.
+          Goa rewards the unhurried traveller. We built this guide around long lunches, empty
+          stretches of sand at odd hours, and the kind of detours that don't show up on a
+          checklist — so a trip here feels less like sightseeing, more like settling in.
         </p>
       </div>
       <div className="philosophy__image">
@@ -177,9 +195,9 @@ function Values() {
   useBlockReveal(headingRef, { start: 'top 78%' })
   return (
     <section className="panel panel--ink values" id="section-values">
-      <span className="eyebrow">What we build around</span>
+      <span className="eyebrow">What every trip is built around</span>
       <div className="reveal-mask">
-        <h2 ref={headingRef}>Three ideas we don't compromise on</h2>
+        <h2 ref={headingRef}>Three things that define every visit</h2>
       </div>
       <div className="values__grid">
         {VALUES.map((v) => (
@@ -209,15 +227,15 @@ function ProjectsHeading() {
   useTextReveal(bodyRef, { start: 'top 85%', stagger: 0.05 })
   return (
     <div className="projects-heading" id="section-projects">
-      <span className="eyebrow">Projects</span>
+      <span className="eyebrow">Destinations</span>
       <div className="reveal-mask">
         <h2 ref={headingRef}>
-          Luxury isn't loud — it's <em style={{ color: 'var(--bronze-light)' }}>built</em>
+          Goa isn't one place — it's <em style={{ color: 'var(--bronze-light)' }}>five worlds</em>
         </h2>
       </div>
       <p ref={bodyRef}>
-        Five houses, one conviction: that comfort, restraint and craft can share the same room.
-        Scroll on for the current collection.
+        A party beach, a UNESCO basilica, a jungle waterfall, a 17th-century fort, a silent
+        stretch of sand. Scroll on for where to go first.
       </p>
     </div>
   )
@@ -262,10 +280,25 @@ function ProjectCard({ project, progress, range }) {
   return (
     <Link to={`/projects/${project.slug}`} className="project-card" ref={cardRef}>
       <div ref={imgRef} className="project-card__bg-clip">
-        <motion.div
-          className="project-card__bg ph-tone"
-          style={{ backgroundImage: `url(${project.image})`, x: bgX }}
-        />
+        {project.video ? (
+          <motion.video
+            className="project-card__bg ph-tone"
+            style={{ x: bgX }}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={project.image}
+          >
+            <source src={project.video} type="video/mp4" />
+          </motion.video>
+        ) : (
+          <motion.div
+            className="project-card__bg ph-tone"
+            style={{ backgroundImage: `url(${project.image})`, x: bgX }}
+          />
+        )}
       </div>
       <div ref={maskRef} className="project-card__mask" />
       <div className="project-card__body">
@@ -293,15 +326,15 @@ function Closing({ progress }) {
         className="closing__bg ph-tone"
         style={{ backgroundImage: `url(${SITE_IMAGES.closing})`, x: bgX }}
       />
-      <span className="eyebrow">On luxury</span>
+      <span className="eyebrow">On travel</span>
       <div className="reveal-mask">
         <h2 ref={headingRef}>
-          It doesn't shout. It doesn't chase the season. It's <em>quiet, playful, alive.</em>
+          It doesn't rush. It doesn't perform for the camera. It's <em>quiet, playful, alive.</em>
         </h2>
       </div>
       <p ref={bodyRef}>
-        We don't build houses so much as a way of living — spaces of calm that are just as ready to
-        be shared as they are to be kept for yourself.
+        Goa isn't a place you check off — it's a rhythm you fall into. Some days are for the
+        crowd at Baga, others for a hammock nobody else has found yet.
       </p>
     </section>
   )
@@ -313,14 +346,14 @@ function Contact() {
       <div className="contact-grid">
         <div className="contact-intro">
           <span className="eyebrow" style={{ color: 'var(--bronze)' }}>
-            Contact
+            Plan your trip
           </span>
-          <h2>Begin your next chapter</h2>
+          <h2>Start planning your Goa getaway</h2>
           <p>
-            Tell us a little about what you're looking for and a member of the studio will be in
-            touch within one working day.
+            Tell us a little about what you're after — beaches, heritage, or a bit of both — and
+            we'll help you shape an itinerary.
           </p>
-          <span className="email">contact@obra-estates.com</span>
+          <span className="email">geeteshkankonkar@gmail.com</span>
         </div>
         <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
           <div className="field">
@@ -340,13 +373,9 @@ function Contact() {
             <label htmlFor="message">Message</label>
           </div>
           <button className="submit-btn" type="submit">
-            Request information
+            Send enquiry
           </button>
         </form>
-      </div>
-      <div className="contact-footer">
-        <span>Instagram · Pinterest</span>
-        <span>OBRA © 2026</span>
       </div>
     </section>
   )
