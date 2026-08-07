@@ -1,14 +1,6 @@
 // -----------------------------------------------------------------------
 // CONTENT — Goa Tourism edition
 // -----------------------------------------------------------------------
-// TRACK_VW / OFFSETS / SECTION_LIST / SCROLL_SPEED / PROJECT_RANGES are
-// STRUCTURAL values tied to your CSS panel widths and the horizontal-scroll
-// track. If your existing content.js already has these tuned to your
-// layout, keep your originals and only swap in VALUES / PROJECTS /
-// SITE_IMAGES below. The numbers here are placeholders that assume the
-// same panel count as the OBRA version (Hero, Philosophy, Values,
-// ProjectsHeading, 5x ProjectCard, Closing, Contact = 10 panels).
-// -----------------------------------------------------------------------
 
 export const VALUES = [
   {
@@ -28,144 +20,176 @@ export const VALUES = [
   },
 ]
 
+// "Categories" rather than single destinations — inspired by the grid of
+// experience-type cards on goa-tourism.com's "Goa Inspires" section.
+// Temples and Churches are separate cards; Museums stays paired with
+// Churches. Nature + Wildlife + Lakes/Waterfalls remain merged into one.
 export const PROJECTS = [
-  {
+{
     num: '01',
-    slug: 'baga-beach',
-    name: 'Baga Beach',
-    year: 'Nov – Mar',
-    place: 'North Goa',
-    status: 'Beach & Nightlife',
+    slug: 'beaches',
+    name: 'Beaches',
+    year: 'Oct – Mar',
+    place: 'North to South coast',
+    status: 'Beaches',
     image: '/images/goa/baga-beach.jpg',
     summary:
-      "Goa's most energetic stretch of sand — beach shacks that turn into open-air clubs after dark, water sports by day, and the Baga river mouth for a quieter sunset walk.",
+      "Over 100km of coastline and no two stretches alike — Baga's all-night energy on one end, Palolem's crescent-shaped hush on the other, with everything in between.",
     facts: {
-      'Known for': 'Nightlife & water sports',
-      Nearby: 'Calangute & Anjuna',
-      Vibe: 'High energy, always on',
+      Includes: 'North & South Goa beaches',
+      "Don't miss": 'Baga Beach, Palolem Beach',
+      Vibe: 'Something for every pace',
     },
-    gallery: [
-      '/images/goa/baga-1.jpg',
-      '/images/goa/baga-2.jpg',
-      '/images/goa/baga-3.jpg',
+    highlights: [
+      { name: 'Baga Beach', blurb: 'Shacks that turn into open-air clubs after dark, plus water sports by day.', image: '/images/goa/highlight-baga.jpg' },
+      { name: 'Palolem Beach', blurb: "A crescent shore known for silent discos and boat trips to Butterfly Beach.", image: '/images/goa/highlight-palolem.jpg' },
+      { name: 'Anjuna Beach', blurb: 'Home to the famous Wednesday flea market and a laid-back cliffside scene.', image: '/images/goa/highlight-anjuna.jpg' },
+      { name: 'Agonda Beach', blurb: 'A quiet, palm-fringed stretch popular with turtles nesting in season.', image: '/images/goa/highlight-agonda.jpg' },
     ],
   },
   {
     num: '02',
-    slug: 'basilica-of-bom-jesus',
-    name: 'Basilica of Bom Jesus',
+    slug: 'churches-museums',
+    name: 'Churches & Museums',
     year: 'Year-round',
-    place: 'Old Goa',
-    status: 'UNESCO Heritage',
+    place: 'Old Goa & beyond',
+    status: 'Churches & Museums',
     image: '/images/goa/bom-jesus.webp',
     summary:
-      'A baroque masterpiece and UNESCO World Heritage Site, holding the mortal remains of St. Francis Xavier since 1605 — the spiritual heart of Old Goa.',
+      'Baroque basilicas and small museums tucked into former colonial buildings — four and a half centuries of Portuguese-era history you can still walk into.',
     facts: {
-      Built: '1605',
-      Style: 'Baroque',
-      Houses: 'Relics of St. Francis Xavier',
+      Includes: 'Churches & museums',
+      "Don't miss": 'Basilica of Bom Jesus',
+      Nearby: 'Old Goa heritage precinct',
     },
-    gallery: [
-      '/images/goa/bom-jesus-1.jpg',
-      '/images/goa/bom-jesus-2.jpg',
-      '/images/goa/bom-jesus-3.jpg',
+    highlights: [
+      { name: 'Basilica of Bom Jesus', blurb: 'UNESCO-listed baroque basilica holding the remains of St. Francis Xavier since 1605.', image: '/images/goa/highlight-bom-jesus.jpg' },
+      { name: 'Sé Cathedral', blurb: 'One of the largest churches in Asia, known for its Golden Bell.', image: '/images/goa/highlight-se-cathedral.jpg' },
+      { name: 'Church of St. Francis of Assisi', blurb: 'A 16th-century church with an adjoining archaeological museum.', image: '/images/goa/highlight-st-francis.jpg' },
+      { name: 'Goa State Museum', blurb: 'Sculptures, coins and manuscripts tracing the state\'s layered history.', image: '/images/goa/highlight-state-museum.jpg' },
     ],
   },
   {
     num: '03',
-    slug: 'dudhsagar-falls',
-    name: 'Dudhsagar Falls',
-    year: 'Jun – Sep',
-    place: 'Goa–Karnataka border',
-    status: 'Waterfall',
+    slug: 'nature-wildlife',
+    name: 'Nature & Wildlife',
+    year: 'Jun – Sep peak',
+    place: 'Western Ghats & sanctuaries',
+    status: 'Wildlife, Lakes & Waterfalls',
     image: '/images/goa/dudhsagar.webp',
     summary:
-      "One of India's tallest waterfalls, tumbling 310 metres through the Bhagwan Mahaveer Sanctuary — reached by jeep safari through dense forest.",
+      "Waterfalls that thunder through the monsoon, wildlife sanctuaries thick with spice plantations, and quiet lakes just far enough inland to feel like a different state.",
     facts: {
-      Height: '310m',
-      'Best access': 'Jeep safari from Mollem',
-      Tip: 'Visit just after monsoon for full flow',
+      Includes: 'Waterfalls, sanctuaries & lakes',
+      "Don't miss": 'Dudhsagar Falls',
+      Tip: 'Falls run fullest just after monsoon',
     },
-    gallery: [
-      '/images/goa/dudhsagar-1.jpg',
-      '/videos/goa/dudhsagar-flow.mp4',
-      '/images/goa/dudhsagar-3.jpg',
+    highlights: [
+      { name: 'Dudhsagar Falls', blurb: 'One of India\'s tallest waterfalls, reached by jeep safari through dense forest.', image: '/images/goa/highlight-dudhsagar.jpg' },
+      { name: 'Bhagwan Mahaveer Sanctuary', blurb: "Goa's largest wildlife sanctuary, home to gaur, sambar and hornbills.", image: '/images/goa/highlight-mahaveer.jpg' },
+      { name: 'Salim Ali Bird Sanctuary', blurb: 'Mangrove-lined sanctuary on the Mandovi, best visited by boat at dawn.', image: '/images/goa/highlight-salim-ali.jpg' },
+      { name: 'Mayem Lake', blurb: 'A calm freshwater lake ringed by forest, popular for boating and picnics.', image: '/images/goa/highlight-mayem.jpg' },
     ],
   },
   {
     num: '04',
-    slug: 'fort-aguada',
-    name: 'Fort Aguada',
+    slug: 'temples',
+    name: 'Temples',
     year: 'Year-round',
-    place: 'Candolim, North Goa',
-    status: 'Fort & Lighthouse',
-    image: '/images/goa/fort-aguada.webp',
+    place: 'Ponda & across Goa',
+    status: 'Temples',
+    image: '/images/goa/temple.jpg',
     summary:
-      'A 17th-century Portuguese sea fort built to guard against Dutch and Maratha raids, now one of the best sunset points on the coast.',
+      "Hilltop Hindu temples with distinctive Goan-style shikharas and deepstambhas — many predating Portuguese rule, clustered thickest around Ponda's temple belt.",
     facts: {
-      Built: '1612',
-      Purpose: 'Portuguese coastal defence',
-      Today: 'Lighthouse & viewpoint',
+      Includes: 'Hindu temples statewide',
+      "Don't miss": 'Ponda temple belt',
+      Tip: 'Modest dress required at most temples',
     },
-    gallery: [
-      '/images/goa/fort-aguada-1.jpg',
-      '/images/goa/fort-aguada-2.jpg',
-      '/images/goa/fort-aguada-3.jpg',
+    highlights: [
+      { name: 'Shri Mangeshi Temple', blurb: "Goa's most-visited temple, known for its distinctive seven-tier deepstambha.", image: '/images/goa/highlight-mangeshi.jpg' },
+      { name: 'Shri Shantadurga Temple', blurb: 'Dedicated to the goddess of peace, set in the Ponda temple belt.', image: '/images/goa/highlight-shantadurga.jpg' },
+      { name: 'Shri Mahalsa Temple', blurb: 'Known for its tall brass lamp tower and Sunday temple-car procession.', image: '/images/goa/highlight-mahalsa.jpg' },
+      { name: 'Shri Nagesh Temple', blurb: "One of Goa's oldest temples, with a stepped tank and old banyan tree.", image: '/images/goa/highlight-nagesh.jpg' },
     ],
   },
   {
     num: '05',
-    slug: 'palolem-beach',
-    name: 'Palolem Beach',
-    year: 'Oct – Mar',
-    place: 'South Goa',
-    status: 'Beach & Serenity',
-    image: '/images/goa/palolem.webp',
+    slug: 'festivals-culture',
+    name: 'Festivals & Culture',
+    year: 'Year-round',
+    place: 'Across Goa',
+    status: 'Feasts, Music & Local Life',
+    image: '/images/goa/festival.webp',
     summary:
-      "A crescent-shaped shore fringed with palms — Goa's slower side, known for silent discos, kayaking, and boat trips out to Butterfly Beach.",
+      'From village feast-day processions to a state-wide carnival, Goa runs on a calendar of festivals — Christian, Hindu and secular alike — that spill straight into the street.',
     facts: {
-      'Known for': 'Crescent shore & silent discos',
-      Nearby: 'Butterfly Beach (by boat)',
-      Vibe: 'Laid-back, unhurried',
+      Includes: 'Feasts, carnivals & fairs',
+      "Don't miss": 'Feast of St. Francis Xavier',
+      Tip: 'Check the local calendar before you book',
     },
-    gallery: [
-      '/images/goa/palolem-1.jpg',
-      '/images/goa/palolem-2.jpg',
-      '/images/goa/palolem-3.jpg',
+    highlights: [
+      { name: 'Goa Carnival', blurb: 'A three-day street parade of floats and music, held before Lent each year.', image: '/images/goa/highlight-carnival.jpg' },
+      { name: 'Feast of St. Francis Xavier', blurb: 'A major pilgrimage feast held every December at the Basilica of Bom Jesus.', image: '/images/goa/highlight-feast.jpg' },
+      { name: 'Shigmo', blurb: "Goa's spring festival, with folk dance processions across the state.", image: '/images/goa/highlight-shigmo.jpg' },
+      { name: 'Sao Joao', blurb: 'A monsoon feast where locals leap into wells and rivers to celebrate.', image: '/images/goa/highlight-sao-joao.jpg' },
+    ],
+  },
+  {
+    num: '06',
+    slug: 'ayurveda-wellness',
+    name: 'Ayurveda & Wellness',
+    year: 'Year-round',
+    place: 'Retreats statewide',
+    status: 'Wellness & Healing',
+    image: '/images/goa/ayurveda.webp',
+    summary:
+      'Traditional Ayurvedic treatments, yoga shalas overlooking the sea, and retreats built around slowing down — Goa\'s answer to a trip that asks nothing of you.',
+    facts: {
+      Includes: 'Ayurveda, yoga & spa retreats',
+      "Don't miss": 'A traditional Panchakarma session',
+      Tip: 'Book multi-day retreats well ahead in peak season',
+    },
+    highlights: [
+      { name: 'Panchakarma Therapy', blurb: 'A traditional multi-day detox and rejuvenation programme.', image: '/images/goa/highlight-panchakarma.jpg' },
+      { name: 'Beachside Yoga', blurb: 'Sunrise sessions on the sand, run by shalas up and down the coast.', image: '/images/goa/highlight-yoga.jpg' },
+      { name: 'Spa Retreats', blurb: 'Multi-day wellness stays combining massage, diet and quiet.', image: '/images/goa/highlight-spa.jpg' },
+      { name: 'Naturopathy Centres', blurb: 'Drug-free healing practices rooted in diet, water and rest.', image: '/images/goa/highlight-naturopathy.jpg' },
     ],
   },
 ]
 
 export const SITE_IMAGES = {
   hero: '/images/goa/hero-coastline.jpg',
-  heroVideo: '/videos/goa/hero-coastline.mp4', // optional — omit/leave blank to fall back to the image
+  heroVideo: '/videos/goa/hero-coastline.mp4', // omit/leave blank to fall back to the image
   philosophy: '/images/goa/spice-market.jpg',
   closing: '/images/goa/sunset-fort-aguada.jpg',
 }
 
-// --- structural / animation config — replace with your tuned values ---
-export const TRACK_VW = 1000 // 10 panels × 100vw — adjust to match your CSS
 export const SCROLL_SPEED = 2.4
+
+export const TRACK_VW = 100 + 100 + 100 + 46 + PROJECTS.length * 60 + 100 + 100 // 846
+const PROJECTS_START_VW = 100 + 100 + 100 + 46 // 346
+
 export const OFFSETS = {
   hero: 0,
-  philosophy: 0.11,
-  values: 0.22,
-  projects: 0.33,
-  closing: 0.85,
-  contact: 0.95,
+  philosophy: 100 / TRACK_VW,
+  values: 200 / TRACK_VW,
+  projects: 300 / TRACK_VW,
+  closing: (300 + 46 + PROJECTS.length * 60) / TRACK_VW,
+  contact: (300 + 46 + PROJECTS.length * 60 + 100) / TRACK_VW,
 }
+
 export const SECTION_LIST = [
-  ['01', 'Hero', 0],
-  ['02', 'Philosophy', 0.11],
-  ['03', 'Values', 0.22],
-  ['04', 'Projects', 0.33],
-  ['05', 'Closing', 0.85],
-  ['06', 'Contact', 0.95],
+  ['01', 'Hero', OFFSETS.hero],
+  ['02', 'Philosophy', OFFSETS.philosophy],
+  ['03', 'Values', OFFSETS.values],
+  ['04', 'Projects', OFFSETS.projects],
+  ['05', 'Closing', OFFSETS.closing],
+  ['06', 'Contact', OFFSETS.contact],
 ]
-export const PROJECT_RANGES = [
-  [0.33, 0.45],
-  [0.45, 0.57],
-  [0.57, 0.69],
-  [0.69, 0.81],
-  [0.81, 0.93],
-]
+
+export const PROJECT_RANGES = PROJECTS.map((_, i) => [
+  (PROJECTS_START_VW + i * 60) / TRACK_VW,
+  (PROJECTS_START_VW + (i + 1) * 60) / TRACK_VW,
+])

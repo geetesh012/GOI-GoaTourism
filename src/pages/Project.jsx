@@ -50,7 +50,7 @@ export default function Project() {
       <section className="project-body">
         <div className="project-body__intro">
           <span className="eyebrow" style={{ color: 'var(--bronze)' }}>
-            About this destination
+            About this experience
           </span>
           <p>{project.summary}</p>
         </div>
@@ -64,6 +64,17 @@ export default function Project() {
           ))}
         </dl>
 
+        {project.highlights && (
+          <div className="project-highlights">
+            <span className="eyebrow">Where to start</span>
+            <div className="project-highlights__grid">
+              {project.highlights.map((h) => (
+                <HighlightCard key={h.name} highlight={h} />
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="project-gallery">
           {project.gallery.map((src, i) => (
             <GalleryItem key={i} src={src} delay={i * 0.08} />
@@ -72,7 +83,7 @@ export default function Project() {
       </section>
 
       <Link to={`/projects/${next.slug}`} className="project-next">
-        <span className="eyebrow">Next destination</span>
+        <span className="eyebrow">Next to explore</span>
         <h2>{next.name}</h2>
         <span className="project-next__arrow">→</span>
       </Link>
@@ -82,6 +93,24 @@ export default function Project() {
         <span>GOA TOURISM © 2026</span>
       </footer>
     </div>
+  )
+}
+
+function HighlightCard({ highlight }) {
+  const ref = useRef(null)
+  return (
+    <motion.div
+      ref={ref}
+      className="highlight-card"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="highlight-card__image ph-tone" style={{ backgroundImage: `url(${highlight.image})` }} />
+      <h3>{highlight.name}</h3>
+      <p>{highlight.blurb}</p>
+    </motion.div>
   )
 }
 
@@ -105,7 +134,7 @@ function GalleryItem({ src, delay }) {
     >
       {isVideo ? (
         <motion.video
-          className="project-gallery__item-bg"
+          className="project-gallery__item-bg ph-tone"
           style={{ y }}
           autoPlay
           muted
@@ -113,7 +142,7 @@ function GalleryItem({ src, delay }) {
           playsInline
           preload="metadata"
         >
-          <source src={src} />
+          <source src={src} type="video/mp4" />
         </motion.video>
       ) : (
         <motion.div

@@ -37,9 +37,6 @@ export default function Home() {
     offset: ['start start', 'end end'],
   })
 
-  // Lenis (started once in App.jsx) already smooths the raw wheel/touch
-  // input before it reaches window.scrollY, so scrollYProgress itself is
-  // already gliding — no extra spring layer needed on top of it here.
   const x = useTransform(scrollYProgress, [0, 1], ['0vw', `-${TRACK_VW - 100}vw`])
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
@@ -227,15 +224,16 @@ function ProjectsHeading() {
   useTextReveal(bodyRef, { start: 'top 85%', stagger: 0.05 })
   return (
     <div className="projects-heading" id="section-projects">
-      <span className="eyebrow">Destinations</span>
+      <span className="eyebrow">Discover Goa</span>
       <div className="reveal-mask">
         <h2 ref={headingRef}>
-          Goa isn't one place — it's <em style={{ color: 'var(--bronze-light)' }}>five worlds</em>
+          Goa isn't one place — it's <em style={{ color: 'var(--bronze-light)' }}>six reasons to come</em>
         </h2>
       </div>
       <p ref={bodyRef}>
-        A party beach, a UNESCO basilica, a jungle waterfall, a 17th-century fort, a silent
-        stretch of sand. Scroll on for where to go first.
+        Heritage worth kneeling for, wilderness worth getting lost in, coastline that changes
+        character every few kilometres, festivals that spill into the street, and stillness
+        when you need it. Scroll on for where to start.
       </p>
     </div>
   )

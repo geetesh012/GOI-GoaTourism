@@ -8,9 +8,6 @@
    Moss       #4A4E3D  deep olive, secondary accent
    ============================================================ */
 
-/* Izmir is a commercial typeface — see public/fonts/izmir/README.md.
-   Drop in licensed files to activate; otherwise these simply never match
-   and the stack falls back to Archivo below. */
 @font-face {
   font-family: 'Izmir';
   src: url('/fonts/izmir/Izmir-Regular.woff2') format('woff2');
@@ -228,34 +225,110 @@ textarea:focus-visible {
 }
 
 /* ==================== PRELOADER ==================== */
+/* Preloader.css — luxury GOI update
+   Extends your existing .preloader / .preloader__mark / .preloader__pct
+   classes. If you already have base positioning/background rules for
+   .preloader in your main stylesheet, keep those — these are additive. */
+
 .preloader {
   position: fixed;
   inset: 0;
-  z-index: 500;
-  background: var(--ink);
-  color: var(--cream);
+  z-index: 999;
+  background: var(--ink, #0b0b0b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader__center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1.4rem;
+  text-align: center;
 }
 
 .preloader__mark {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  display: flex;
+  gap: 0.02em;
+  margin: 0;
+  overflow: hidden;
+  font-size: clamp(4rem, 14vw, 11rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--paper, #f4f1ea);
 }
 
-.preloader__mark sup {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
+.preloader__letter {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.preloader__reg {
+  font-size: 0.3em;
+  margin-left: 0.1em;
+  color: var(--bronze, #b08d57);
+}
+
+.preloader__rule {
+  width: clamp(120px, 20vw, 260px);
+  height: 1px;
+  margin-top: 1.75rem;
+  background: var(--bronze, #b08d57);
+  transform-origin: center;
+}
+
+.preloader__subtitle {
+  margin-top: 1.1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--bronze-light, #d8c39a);
 }
 
 .preloader__pct {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-  color: var(--bronze-light);
+  position: absolute;
+  bottom: clamp(24px, 5vh, 56px);
+  right: clamp(24px, 5vw, 56px);
+  display: flex;
+  align-items: baseline;
+  font-variant-numeric: tabular-nums;
+  color: var(--paper, #f4f1ea);
+}
+
+.preloader__pct-num {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 300;
+}
+
+.preloader__pct-sign {
+  font-size: 0.9rem;
+  margin-left: 2px;
+  color: var(--bronze, #b08d57);
+}
+
+.preloader__corner {
+  position: absolute;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+.preloader__corner--tl {
+  top: clamp(24px, 5vh, 56px);
+  left: clamp(24px, 5vw, 56px);
+}
+
+.preloader__corner--br {
+  bottom: clamp(24px, 5vh, 56px);
+  left: clamp(24px, 5vw, 56px);
+}
+
+@media (max-width: 700px) {
+  .preloader__corner {
+    display: none;
+  }
 }
 
 /* ==================== MENU OVERLAY ==================== */
@@ -1031,6 +1104,49 @@ video.ph-tone {
   margin-top: 0.4rem;
   font-family: var(--font-display);
   font-size: 1.1rem;
+}
+
+.project-highlights {
+  margin-top: clamp(3rem, 8vh, 5rem);
+}
+
+.project-highlights__grid {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.highlight-card__image {
+  aspect-ratio: 4 / 3;
+  border-radius: 2px;
+}
+
+.highlight-card h3 {
+  margin-top: 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--cream);
+}
+
+.highlight-card p {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(245, 241, 232, 0.6);
+}
+
+@media (max-width: 900px) {
+  .project-highlights__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .project-highlights__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-gallery {

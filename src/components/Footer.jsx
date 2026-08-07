@@ -10,7 +10,7 @@ export default function Footer() {
           <h2>
             Still deciding? <em>Start with a destination.</em>
           </h2>
-          <a href="mailto:geeteshkankonkar@gnail.com" className="site-footer__email">
+          <a href="mailto:geeteshkankonkar@gmail.com" className="site-footer__email">
             geeteshkankonkar@gmail.com
           </a>
         </div>
@@ -39,8 +39,8 @@ export default function Footer() {
           </ul>
         </nav>
 
-        <nav className="site-footer__col" aria-label="Destinations">
-          <span className="site-footer__col-title">Destinations</span>
+        <nav className="site-footer__col" aria-label="Discover">
+          <span className="site-footer__col-title">Discover</span>
           <ul>
             {PROJECTS.map((p) => (
               <li key={p.slug}>
