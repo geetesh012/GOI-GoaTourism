@@ -5,7 +5,7 @@ export default function Nav({ onMenuOpen, dark = true }) {
   return (
     <nav className={`nav ${dark ? '' : 'nav--on-light'}`}>
       <Link to="/" className="nav__mark">
-        OBRA<sup>®</sup>
+        GOI<sup>®</sup>
       </Link>
       <MagneticLink strength={0.4}>
         <button className="nav__menu-btn" onClick={onMenuOpen}>

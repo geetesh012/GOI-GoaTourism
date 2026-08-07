@@ -1,4 +1,4 @@
-# OBRA — a horizontal-scroll luxury real-estate site
+# GOI — a horizontal-scroll luxury real-estate site
 
 A React + Vite site in the "side-scroller" storytelling style of sites like normalisboring.es:
 vertical scroll drives horizontal motion through a filmstrip of full-screen panels
@@ -39,7 +39,7 @@ src/
 
 ## Interaction details
 - The **menu overlay** opens with a clip-path wipe and can deep-link back into a
-  section on the home page (dispatches a custom `obra:scrollTo` event that `Home.jsx`
+  section on the home page (dispatches a custom `GOI:scrollTo` event that `Home.jsx`
   listens for) or jump straight to a project page via React Router.
 - The **preloader** counts 0→100% on mount and wipes away with an easing curve;
   it only runs once per full page load, matching the pattern on the reference site.

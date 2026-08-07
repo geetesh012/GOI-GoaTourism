@@ -19,7 +19,7 @@ export default function Menu({ open, onClose }) {
       navigate('/')
       const id = to.split('#')[1]
       setTimeout(() => {
-        window.dispatchEvent(new CustomEvent('obra:scrollTo', { detail: id }))
+        window.dispatchEvent(new CustomEvent('GOI:scrollTo', { detail: id }))
       }, 60)
     } else {
       navigate(to)
@@ -38,7 +38,7 @@ export default function Menu({ open, onClose }) {
         >
           <div className="menu-overlay__top">
             <div className="nav__mark">
-              OBRA<sup>®</sup>
+              GOI<sup>®</sup>
             </div>
             <button className="menu-close" onClick={onClose} aria-label="Close menu">
               Close
@@ -75,7 +75,7 @@ export default function Menu({ open, onClose }) {
           </div>
 
           <div className="menu-overlay__foot">
-            <span>contact@obra-estates.com</span>
+            <span>contact@GOI-estates.com</span>
             <span>Instagram · Pinterest</span>
           </div>
         </motion.div>

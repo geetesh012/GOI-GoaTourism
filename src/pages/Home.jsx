@@ -64,8 +64,8 @@ export default function Home() {
       const key = e.detail
       if (OFFSETS[key] !== undefined) goTo(OFFSETS[key])
     }
-    window.addEventListener('obra:scrollTo', handler)
-    return () => window.removeEventListener('obra:scrollTo', handler)
+    window.addEventListener('GOI:scrollTo', handler)
+    return () => window.removeEventListener('GOI:scrollTo', handler)
   }, [isMobile])
 
   return (
