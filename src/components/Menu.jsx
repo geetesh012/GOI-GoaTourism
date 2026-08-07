@@ -1,6 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { destinations } from '../data/content'
 import MagneticLink from '../motion/MagneticLink'
 
 const links = [
@@ -60,24 +59,6 @@ export default function Menu({ open, onClose }) {
               </MagneticLink>
             ))}
           </nav>
-
-          <div className="menu-destinations">
-            <span className="eyebrow">Inspires</span>
-            <ul>
-              {destinations.map((p) => (
-                <li key={p.slug}>
-                  <Link to={`/destinations/${p.slug}`} onClick={onClose}>
-                    {p.name} <span>{p.place}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="menu-overlay__foot">
-            <span>contact@Geetesh.com</span>
-            <span>Instagram · Pinterest</span>
-          </div>
         </motion.div>
       )}
     </AnimatePresence>
