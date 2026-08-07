@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PROJECTS } from '../data/content'
+import { destinations } from '../data/content'
 
 export default function Footer() {
   return (
@@ -42,9 +42,9 @@ export default function Footer() {
         <nav className="site-footer__col" aria-label="Discover">
           <span className="site-footer__col-title">Discover</span>
           <ul>
-            {PROJECTS.map((p) => (
+            {destinations.map((p) => (
               <li key={p.slug}>
-                <Link to={`/projects/${p.slug}`}>{p.name}</Link>
+                <Link to={`/destinations/${p.slug}`}>{p.name}</Link>
               </li>
             ))}
           </ul>

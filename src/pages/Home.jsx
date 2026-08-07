@@ -10,7 +10,7 @@ import { useTextReveal } from '../motion/useTextReveal'
 import { useBlockReveal } from '../motion/useBlockReveal'
 import { reduceMotion } from '../motion/tokens'
 import { scrollToEl, scrollToY } from '../lib/smoothScroll'
-import { VALUES, PROJECTS, SITE_IMAGES, TRACK_VW, OFFSETS, SECTION_LIST, SCROLL_SPEED, PROJECT_RANGES } from '../data/content'
+import { VALUES, destinations, SITE_IMAGES, TRACK_VW, OFFSETS, SECTION_LIST, SCROLL_SPEED, PROJECT_RANGES } from '../data/content'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -84,8 +84,8 @@ export default function Home() {
             <Hero progress={scrollYProgress} />
             <Philosophy progress={scrollYProgress} />
             <Values />
-            <ProjectsHeading />
-            {PROJECTS.map((p, i) => (
+            <destinationsHeading />
+            {destinations.map((p, i) => (
               <ProjectCard key={p.num} project={p} progress={scrollYProgress} range={PROJECT_RANGES[i]} />
             ))}
             <Closing progress={scrollYProgress} />
@@ -217,13 +217,13 @@ function ValueCard({ value }) {
   )
 }
 
-function ProjectsHeading() {
+function destinationsHeading() {
   const headingRef = useRef(null)
   const bodyRef = useRef(null)
   useBlockReveal(headingRef, { start: 'top 80%' })
   useTextReveal(bodyRef, { start: 'top 85%', stagger: 0.05 })
   return (
-    <div className="projects-heading" id="section-projects">
+    <div className="destinations-heading" id="section-destinations">
       <span className="eyebrow">Discover Goa</span>
       <div className="reveal-mask">
         <h2 ref={headingRef}>
@@ -276,7 +276,7 @@ function ProjectCard({ project, progress, range }) {
   }, [])
 
   return (
-    <Link to={`/projects/${project.slug}`} className="project-card" ref={cardRef}>
+    <Link to={`/destinations/${project.slug}`} className="project-card" ref={cardRef}>
       <div ref={imgRef} className="project-card__bg-clip">
         {project.video ? (
           <motion.video

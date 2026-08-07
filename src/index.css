@@ -391,11 +391,11 @@ textarea:focus-visible {
   color: var(--bronze-light);
 }
 
-.menu-projects {
+.menu-destinations {
   margin-top: clamp(2rem, 6vh, 3.5rem);
 }
 
-.menu-projects ul {
+.menu-destinations ul {
   list-style: none;
   margin-top: 1rem;
   display: flex;
@@ -403,7 +403,7 @@ textarea:focus-visible {
   gap: 0.55rem;
 }
 
-.menu-projects a {
+.menu-destinations a {
   display: flex;
   justify-content: space-between;
   max-width: 420px;
@@ -414,7 +414,7 @@ textarea:focus-visible {
   color: rgba(245, 241, 232, 0.85);
 }
 
-.menu-projects a span {
+.menu-destinations a span {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: rgba(245, 241, 232, 0.45);
@@ -733,8 +733,8 @@ video.ph-tone {
   color: rgba(245, 241, 232, 0.68);
 }
 
-/* ==================== PROJECTS ==================== */
-.projects-heading {
+/* ==================== destinations ==================== */
+.destinations-heading {
   flex-shrink: 0;
   width: 46vw;
   min-width: 320px;
@@ -746,7 +746,7 @@ video.ph-tone {
   background: var(--ink);
 }
 
-.projects-heading h2 {
+.destinations-heading h2 {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(2.1rem, 5vw, 3.9rem);
@@ -755,7 +755,7 @@ video.ph-tone {
   margin-top: 1.2rem;
 }
 
-.projects-heading p {
+.destinations-heading p {
   margin-top: 1.6rem;
   max-width: 34ch;
   color: rgba(245, 241, 232, 0.65);
@@ -1332,7 +1332,7 @@ video.ph-tone {
 
 /* ==================== MOBILE: STACKED FALLBACK ==================== */
 .mobile-stack .panel,
-.mobile-stack .projects-heading,
+.mobile-stack .destinations-heading,
 .mobile-stack .project-card {
   width: 100vw;
   height: auto;

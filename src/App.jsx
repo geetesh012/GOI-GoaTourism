@@ -27,7 +27,7 @@ export default function App() {
       <Cursor />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/projects/:slug" element={<Project />} />
+        <Route path="/destinations/:slug" element={<Project />} />
       </Routes>
     </>
   )

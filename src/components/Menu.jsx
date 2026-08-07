@@ -1,13 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { PROJECTS } from '../data/content'
+import { destinations } from '../data/content'
 import MagneticLink from '../motion/MagneticLink'
 
 const links = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/#studio' },
-  { label: 'Inspires', to: '/#projects' },
-  { label: 'Contact', to: '/#contact' },
+  { label: 'Our Story', to: '/#story' },
+  { label: 'Destinations', to: '/#destinations' },
+  { label: 'Plan Your Trip', to: '/#contact' },
 ]
 
 export default function Menu({ open, onClose }) {
@@ -61,12 +61,12 @@ export default function Menu({ open, onClose }) {
             ))}
           </nav>
 
-          <div className="menu-projects">
-            <span className="eyebrow">Current projects</span>
+          <div className="menu-destinations">
+            <span className="eyebrow">Inspires</span>
             <ul>
-              {PROJECTS.map((p) => (
+              {destinations.map((p) => (
                 <li key={p.slug}>
-                  <Link to={`/projects/${p.slug}`} onClick={onClose}>
+                  <Link to={`/destinations/${p.slug}`} onClick={onClose}>
                     {p.name} <span>{p.place}</span>
                   </Link>
                 </li>
@@ -75,7 +75,7 @@ export default function Menu({ open, onClose }) {
           </div>
 
           <div className="menu-overlay__foot">
-            <span>contact@GOI-estates.com</span>
+            <span>contact@Geetesh.com</span>
             <span>Instagram · Pinterest</span>
           </div>
         </motion.div>

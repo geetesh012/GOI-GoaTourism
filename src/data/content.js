@@ -24,7 +24,7 @@ export const VALUES = [
 // experience-type cards on goa-tourism.com's "Goa Inspires" section.
 // Temples and Churches are separate cards; Museums stays paired with
 // Churches. Nature + Wildlife + Lakes/Waterfalls remain merged into one.
-export const PROJECTS = [
+export const destinations = [
 {
     num: '01',
     slug: 'beaches',
@@ -168,28 +168,28 @@ export const SITE_IMAGES = {
 
 export const SCROLL_SPEED = 2.4
 
-export const TRACK_VW = 100 + 100 + 100 + 46 + PROJECTS.length * 60 + 100 + 100 // 846
-const PROJECTS_START_VW = 100 + 100 + 100 + 46 // 346
+export const TRACK_VW = 100 + 100 + 100 + 46 + destinations.length * 60 + 100 + 100 // 846
+const destinations_START_VW = 100 + 100 + 100 + 46 // 346
 
 export const OFFSETS = {
   hero: 0,
   philosophy: 100 / TRACK_VW,
   values: 200 / TRACK_VW,
-  projects: 300 / TRACK_VW,
-  closing: (300 + 46 + PROJECTS.length * 60) / TRACK_VW,
-  contact: (300 + 46 + PROJECTS.length * 60 + 100) / TRACK_VW,
+  destinations: 300 / TRACK_VW,
+  closing: (300 + 46 + destinations.length * 60) / TRACK_VW,
+  contact: (300 + 46 + destinations.length * 60 + 100) / TRACK_VW,
 }
 
 export const SECTION_LIST = [
   ['01', 'Hero', OFFSETS.hero],
   ['02', 'Philosophy', OFFSETS.philosophy],
   ['03', 'Values', OFFSETS.values],
-  ['04', 'Projects', OFFSETS.projects],
+  ['04', 'destinations', OFFSETS.destinations],
   ['05', 'Closing', OFFSETS.closing],
   ['06', 'Contact', OFFSETS.contact],
 ]
 
-export const PROJECT_RANGES = PROJECTS.map((_, i) => [
-  (PROJECTS_START_VW + i * 60) / TRACK_VW,
-  (PROJECTS_START_VW + (i + 1) * 60) / TRACK_VW,
+export const PROJECT_RANGES = destinations.map((_, i) => [
+  (destinations_START_VW + i * 60) / TRACK_VW,
+  (destinations_START_VW + (i + 1) * 60) / TRACK_VW,
 ])

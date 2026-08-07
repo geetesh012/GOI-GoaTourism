@@ -3,14 +3,14 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Nav from '../components/Nav'
 import Menu from '../components/Menu'
-import { PROJECTS } from '../data/content'
+import { destinations } from '../data/content'
 
 export default function Project() {
   const { slug } = useParams()
   const [menuOpen, setMenuOpen] = useState(false)
   const heroRef = useRef(null)
-  const project = PROJECTS.find((p) => p.slug === slug)
-  const idx = PROJECTS.findIndex((p) => p.slug === slug)
+  const project = destinations.find((p) => p.slug === slug)
+  const idx = destinations.findIndex((p) => p.slug === slug)
 
   const { scrollYProgress: heroProgress } = useScroll({
     target: heroRef,
@@ -20,7 +20,7 @@ export default function Project() {
 
   if (!project) return <Navigate to="/" replace />
 
-  const next = PROJECTS[(idx + 1) % PROJECTS.length]
+  const next = destinations[(idx + 1) % destinations.length]
 
   return (
     <div className="project-page">
@@ -39,7 +39,7 @@ export default function Project() {
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
         >
           <div className="project-hero__meta">
-            <span>{project.num} / {String(PROJECTS.length).padStart(2, '0')}</span>
+            <span>{project.num} / {String(destinations.length).padStart(2, '0')}</span>
             <span>{project.place}</span>
             <span>{project.status}</span>
           </div>
@@ -82,7 +82,7 @@ export default function Project() {
         </div>
       </section>
 
-      <Link to={`/projects/${next.slug}`} className="project-next">
+      <Link to={`/destinations/${next.slug}`} className="project-next">
         <span className="eyebrow">Next to explore</span>
         <h2>{next.name}</h2>
         <span className="project-next__arrow">→</span>
