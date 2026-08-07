@@ -82,5 +82,5 @@ export default function Footer() {
 // so footer links and menu links stay behaviorally consistent
 function scrollToSection(e, id) {
   e.preventDefault()
-  window.dispatchEvent(new CustomEvent('obra:scrollTo', { detail: id }))
+  window.dispatchEvent(new CustomEvent('GOI:scrollTo', { detail: id }))
 }
