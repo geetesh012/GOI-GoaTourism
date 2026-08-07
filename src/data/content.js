@@ -32,7 +32,7 @@ export const destinations = [
     year: 'Oct – Mar',
     place: 'North to South coast',
     status: 'Beaches',
-    image: '${import.meta.env.BASE_URL}/images/goa/baga-beach.jpg',
+    image: `${import.meta.env.BASE_URL}/images/goa/baga-beach.jpg`,
     summary:
       "Over 100km of coastline and no two stretches alike — Baga's all-night energy on one end, Palolem's crescent-shaped hush on the other, with everything in between.",
     facts: {
@@ -54,7 +54,7 @@ export const destinations = [
     year: 'Year-round',
     place: 'Old Goa & beyond',
     status: 'Churches & Museums',
-    image: '${import.meta.env.BASE_URL}/images/goa/bom-jesus.webp',
+    image: `${import.meta.env.BASE_URL}/images/goa/bom-jesus.webp`,
     summary:
       'Baroque basilicas and small museums tucked into former colonial buildings — four and a half centuries of Portuguese-era history you can still walk into.',
     facts: {
@@ -76,7 +76,7 @@ export const destinations = [
     year: 'Jun – Sep peak',
     place: 'Western Ghats & sanctuaries',
     status: 'Wildlife, Lakes & Waterfalls',
-    image: '${import.meta.env.BASE_URL}/images/goa/dudhsagar.webp',
+    image: `${import.meta.env.BASE_URL}/images/goa/dudhsagar.webp`,
     summary:
       "Waterfalls that thunder through the monsoon, wildlife sanctuaries thick with spice plantations, and quiet lakes just far enough inland to feel like a different state.",
     facts: {
@@ -98,7 +98,7 @@ export const destinations = [
     year: 'Year-round',
     place: 'Ponda & across Goa',
     status: 'Temples',
-    image: '${import.meta.env.BASE_URL}/images/goa/temple.jpg',
+    image: `${import.meta.env.BASE_URL}/images/goa/temple.jpg`,
     summary:
       "Hilltop Hindu temples with distinctive Goan-style shikharas and deepstambhas — many predating Portuguese rule, clustered thickest around Ponda's temple belt.",
     facts: {
@@ -120,7 +120,7 @@ export const destinations = [
     year: 'Year-round',
     place: 'Across Goa',
     status: 'Feasts, Music & Local Life',
-    image: '${import.meta.env.BASE_URL}/images/goa/festival.webp',
+    image: `${import.meta.env.BASE_URL}/images/goa/festival.webp`,
     summary:
       'From village feast-day processions to a state-wide carnival, Goa runs on a calendar of festivals — Christian, Hindu and secular alike — that spill straight into the street.',
     facts: {
@@ -142,7 +142,7 @@ export const destinations = [
     year: 'Year-round',
     place: 'Retreats statewide',
     status: 'Wellness & Healing',
-    image: '${import.meta.env.BASE_URL}/images/goa/ayurveda.webp',
+    image: `${import.meta.env.BASE_URL}/images/goa/ayurveda.webp`,
     summary:
       'Traditional Ayurvedic treatments, yoga shalas overlooking the sea, and retreats built around slowing down — Goa\'s answer to a trip that asks nothing of you.',
     facts: {
