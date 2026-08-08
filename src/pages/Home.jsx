@@ -84,7 +84,7 @@ export default function Home() {
             <Hero progress={scrollYProgress} />
             <Philosophy progress={scrollYProgress} />
             <Values />
-            <destinationsHeading />
+            <ProjectHeading />
             {destinations.map((p, i) => (
               <ProjectCard key={p.num} project={p} progress={scrollYProgress} range={PROJECT_RANGES[i]} />
             ))}
@@ -217,13 +217,13 @@ function ValueCard({ value }) {
   )
 }
 
-function destinationsHeading() {
+function ProjectHeading() {
   const headingRef = useRef(null)
   const bodyRef = useRef(null)
   useBlockReveal(headingRef, { start: 'top 80%' })
   useTextReveal(bodyRef, { start: 'top 85%', stagger: 0.05 })
   return (
-    <div className="destinations-heading" id="section-destinations">
+    <div className="projects-heading" id="section-destinations">
       <span className="eyebrow">Discover Goa</span>
       <div className="reveal-mask">
         <h2 ref={headingRef}>
