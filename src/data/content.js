@@ -1,7 +1,3 @@
-// -----------------------------------------------------------------------
-// CONTENT — Goa Tourism edition
-// -----------------------------------------------------------------------
-
 export const VALUES = [
   {
     num: '01',
@@ -25,7 +21,7 @@ export const VALUES = [
 // Temples and Churches are separate cards; Museums stays paired with
 // Churches. Nature + Wildlife + Lakes/Waterfalls remain merged into one.
 export const destinations = [
-{
+  {
     num: '01',
     slug: 'beaches',
     name: 'Beaches',
@@ -45,6 +41,12 @@ export const destinations = [
       { name: 'Palolem Beach', blurb: "A crescent shore known for silent discos and boat trips to Butterfly Beach.", image: '/images/goa/highlight-palolem.jpg' },
       { name: 'Anjuna Beach', blurb: 'Home to the famous Wednesday flea market and a laid-back cliffside scene.', image: '/images/goa/highlight-anjuna.jpg' },
       { name: 'Agonda Beach', blurb: 'A quiet, palm-fringed stretch popular with turtles nesting in season.', image: '/images/goa/highlight-agonda.jpg' },
+    ],
+    gallery: [
+      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-1.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-2.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-3.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-4.jpg`,
     ],
   },
   {
@@ -68,6 +70,12 @@ export const destinations = [
       { name: 'Church of St. Francis of Assisi', blurb: 'A 16th-century church with an adjoining archaeological museum.', image: '/images/goa/highlight-st-francis.jpg' },
       { name: 'Goa State Museum', blurb: 'Sculptures, coins and manuscripts tracing the state\'s layered history.', image: '/images/goa/highlight-state-museum.jpg' },
     ],
+    gallery: [
+      `${import.meta.env.BASE_URL}images/goa/gallery-churches-1.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-churches-2.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-churches-3.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-churches-4.jpg`,
+    ],
   },
   {
     num: '03',
@@ -90,17 +98,23 @@ export const destinations = [
       { name: 'Salim Ali Bird Sanctuary', blurb: 'Mangrove-lined sanctuary on the Mandovi, best visited by boat at dawn.', image: '/images/goa/highlight-salim-ali.jpg' },
       { name: 'Mayem Lake', blurb: 'A calm freshwater lake ringed by forest, popular for boating and picnics.', image: '/images/goa/highlight-mayem.jpg' },
     ],
+    gallery: [
+      `${import.meta.env.BASE_URL}images/goa/gallery-nature-1.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-nature-2.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-nature-3.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-nature-4.jpg`,
+    ],
   },
   {
     num: '04',
     slug: 'temples',
     name: 'Temples',
     year: 'Year-round',
-    place: 'Ponda & across Goa',
+    place: 'Mollem & across Goa',
     status: 'Temples',
     image: `${import.meta.env.BASE_URL}images/goa/temple.jpg`,
     summary:
-      "Hilltop Hindu temples with distinctive Goan-style shikharas and deepstambhas — many predating Portuguese rule, clustered thickest around Ponda's temple belt.",
+      "Hilltop Hindu temples with distinctive Goan-style shikharas and deepstambhas — many predating Portuguese rule, clustered thickest around Mollem's temple belt.",
     facts: {
       Includes: 'Hindu temples statewide',
       "Don't miss": 'Ponda temple belt',
@@ -108,9 +122,15 @@ export const destinations = [
     },
     highlights: [
       { name: 'Shri Mangeshi Temple', blurb: "Goa's most-visited temple, known for its distinctive seven-tier deepstambha.", image: '/images/goa/highlight-mangeshi.jpg' },
-      { name: 'Shri Shantadurga Temple', blurb: 'Dedicated to the goddess of peace, set in the Ponda temple belt.', image: '/images/goa/highlight-shantadurga.jpg' },
+      { name: 'Shri Shantadurga Temple', blurb: 'Dedicated to the goddess of peace, set in the Mollem temple belt.', image: '/images/goa/highlight-shantadurga.jpg' },
       { name: 'Shri Mahalsa Temple', blurb: 'Known for its tall brass lamp tower and Sunday temple-car procession.', image: '/images/goa/highlight-mahalsa.jpg' },
       { name: 'Shri Nagesh Temple', blurb: "One of Goa's oldest temples, with a stepped tank and old banyan tree.", image: '/images/goa/highlight-nagesh.jpg' },
+    ],
+    gallery: [
+      `${import.meta.env.BASE_URL}images/goa/gallery-temples-1.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-temples-2.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-temples-3.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-temples-4.jpg`,
     ],
   },
   {
@@ -134,6 +154,12 @@ export const destinations = [
       { name: 'Shigmo', blurb: "Goa's spring festival, with folk dance processions across the state.", image: '/images/goa/highlight-shigmo.jpg' },
       { name: 'Sao Joao', blurb: 'A monsoon feast where locals leap into wells and rivers to celebrate.', image: '/images/goa/highlight-sao-joao.jpg' },
     ],
+    gallery: [
+      `${import.meta.env.BASE_URL}images/goa/gallery-festivals-1.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-festivals-2.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-festivals-3.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-festivals-4.jpg`,
+    ],
   },
   {
     num: '06',
@@ -155,6 +181,12 @@ export const destinations = [
       { name: 'Beachside Yoga', blurb: 'Sunrise sessions on the sand, run by shalas up and down the coast.', image: '/images/goa/highlight-yoga.jpg' },
       { name: 'Spa Retreats', blurb: 'Multi-day wellness stays combining massage, diet and quiet.', image: '/images/goa/highlight-spa.jpg' },
       { name: 'Naturopathy Centres', blurb: 'Drug-free healing practices rooted in diet, water and rest.', image: '/images/goa/highlight-naturopathy.jpg' },
+    ],
+    gallery: [
+      `${import.meta.env.BASE_URL}images/goa/gallery-ayurveda-1.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-ayurveda-2.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-ayurveda-3.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-ayurveda-4.jpg`,
     ],
   },
 ]

@@ -75,11 +75,13 @@ export default function Project() {
           </div>
         )}
 
-        <div className="project-gallery">
-          {project.gallery.map((src, i) => (
-            <GalleryItem key={i} src={src} delay={i * 0.08} />
-          ))}
-        </div>
+        {project.gallery && project.gallery.length > 0 && (
+          <div className="project-gallery">
+            {project.gallery.map((src, i) => (
+              <GalleryItem key={i} src={src} delay={i * 0.08} />
+            ))}
+          </div>
+        )}
       </section>
 
       <Link to={`/destinations/${next.slug}`} className="project-next">

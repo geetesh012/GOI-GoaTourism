@@ -81,14 +81,14 @@ export default function Home() {
       >
         <div className="scroll-sticky">
           <motion.div className="scroll-track" style={isMobile ? {} : { x }}>
-            <Hero progress={scrollYProgress} />
-            <Philosophy progress={scrollYProgress} />
+            <Hero progress={scrollYProgress} isMobile={isMobile} />
+            <Philosophy progress={scrollYProgress} isMobile={isMobile} />
             <Values />
-            <ProjectHeading />
+            <ProjectsHeading />
             {destinations.map((p, i) => (
-              <ProjectCard key={p.num} project={p} progress={scrollYProgress} range={PROJECT_RANGES[i]} />
+              <ProjectCard key={p.num} project={p} progress={scrollYProgress} range={PROJECT_RANGES[i]} isMobile={isMobile} />
             ))}
-            <Closing progress={scrollYProgress} />
+            <Closing progress={scrollYProgress} isMobile={isMobile} />
             <Contact />
           </motion.div>
         </div>
@@ -110,8 +110,8 @@ function Rail({ progress, label }) {
   )
 }
 
-function Hero({ progress }) {
-  const bgX = useTransform(progress, [OFFSETS.hero, OFFSETS.philosophy], ['-8%', '8%'])
+function Hero({ progress, isMobile }) {
+  const bgX = useTransform(progress, [OFFSETS.hero, OFFSETS.philosophy], isMobile ? ['0%', '0%'] : ['-8%', '8%'])
   return (
     <section className="panel panel--ink hero" id="section-hero">
       <motion.div className="hero__bg" style={{ x: bgX }}>
@@ -154,8 +154,8 @@ function Hero({ progress }) {
   )
 }
 
-function Philosophy({ progress }) {
-  const imgX = useTransform(progress, [OFFSETS.philosophy, OFFSETS.values], ['-10%', '10%'])
+function Philosophy({ progress, isMobile }) {
+  const imgX = useTransform(progress, [OFFSETS.philosophy, OFFSETS.values], isMobile ? ['0%', '0%'] : ['-10%', '10%'])
   const headingRef = useRef(null)
   const bodyRef = useRef(null)
   useBlockReveal(headingRef, { start: 'top 75%' })
@@ -217,7 +217,7 @@ function ValueCard({ value }) {
   )
 }
 
-function ProjectHeading() {
+function ProjectsHeading() {
   const headingRef = useRef(null)
   const bodyRef = useRef(null)
   useBlockReveal(headingRef, { start: 'top 80%' })
@@ -239,8 +239,8 @@ function ProjectHeading() {
   )
 }
 
-function ProjectCard({ project, progress, range }) {
-  const bgX = useTransform(progress, range, ['-9%', '9%'])
+function ProjectCard({ project, progress, range, isMobile }) {
+  const bgX = useTransform(progress, range, isMobile ? ['0%', '0%'] : ['-9%', '9%'])
   const cardRef = useRef(null)
   const imgRef = useRef(null)
   const maskRef = useRef(null)
@@ -312,8 +312,8 @@ function ProjectCard({ project, progress, range }) {
   )
 }
 
-function Closing({ progress }) {
-  const bgX = useTransform(progress, [OFFSETS.closing, OFFSETS.contact], ['-8%', '8%'])
+function Closing({ progress, isMobile }) {
+  const bgX = useTransform(progress, [OFFSETS.closing, OFFSETS.contact], isMobile ? ['0%', '0%'] : ['-8%', '8%'])
   const headingRef = useRef(null)
   const bodyRef = useRef(null)
   useBlockReveal(headingRef, { start: 'top 75%', distance: '100%' })
