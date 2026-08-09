@@ -23,7 +23,7 @@ export default function Footer() {
             </li>
             <li>
               <a href="#section-philosophy" onClick={(e) => scrollToSection(e, 'philosophy')}>
-                Our approach
+                Approach
               </a>
             </li>
             <li>

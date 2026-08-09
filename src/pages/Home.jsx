@@ -164,7 +164,7 @@ function Philosophy({ progress, isMobile }) {
     <section className="panel panel--stone philosophy" id="section-philosophy">
       <div className="philosophy__text">
         <span className="eyebrow" style={{ color: 'var(--bronze)' }}>
-          Our Approach
+          Approach
         </span>
         <div className="reveal-mask">
           <h2 ref={headingRef}>
