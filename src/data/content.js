@@ -37,16 +37,16 @@ export const destinations = [
       Vibe: 'Something for every pace',
     },
     highlights: [
-      { name: 'Baga Beach', blurb: 'Shacks that turn into open-air clubs after dark, plus water sports by day.', image: '/images/goa/highlight-baga.jpg' },
-      { name: 'Palolem Beach', blurb: "A crescent shore known for silent discos and boat trips to Butterfly Beach.", image: '/images/goa/highlight-palolem.jpg' },
-      { name: 'Anjuna Beach', blurb: 'Home to the famous Wednesday flea market and a laid-back cliffside scene.', image: '/images/goa/highlight-anjuna.jpg' },
-      { name: 'Agonda Beach', blurb: 'A quiet, palm-fringed stretch popular with turtles nesting in season.', image: '/images/goa/highlight-agonda.jpg' },
+      { name: 'Baga Beach', blurb: 'Shacks that turn into open-air clubs after dark, plus water sports by day.', image: `${import.meta.env.BASE_URL}images/goa/highlight-baga.jpg`, },
+      { name: 'Palolem Beach', blurb: "A crescent shore known for silent discos and boat trips to Butterfly Beach.", image: `${import.meta.env.BASE_URL}images/goa/highlight-palolem.webp`, },
+      { name: 'Anjuna Beach', blurb: 'Home to the famous Wednesday flea market and a laid-back cliffside scene.', image: `${import.meta.env.BASE_URL}images/goa/highlight-anjuna.webp`, },
+      { name: 'Agonda Beach', blurb: 'A quiet, palm-fringed stretch popular with turtles nesting in season.', image: `${import.meta.env.BASE_URL}images/goa/highlight-agonda.webp`, },
     ],
     gallery: [
-      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-1.jpg`,
-      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-2.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-1.webp`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-2.webp`,
       `${import.meta.env.BASE_URL}images/goa/gallery-beaches-3.jpg`,
-      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-4.jpg`,
+      `${import.meta.env.BASE_URL}images/goa/gallery-beaches-4.webp`,
     ],
   },
   {
@@ -65,10 +65,10 @@ export const destinations = [
       Nearby: 'Old Goa heritage precinct',
     },
     highlights: [
-      { name: 'Basilica of Bom Jesus', blurb: 'UNESCO-listed baroque basilica holding the remains of St. Francis Xavier since 1605.', image: '/images/goa/highlight-bom-jesus.jpg' },
-      { name: 'Sé Cathedral', blurb: 'One of the largest churches in Asia, known for its Golden Bell.', image: '/images/goa/highlight-se-cathedral.jpg' },
-      { name: 'Church of St. Francis of Assisi', blurb: 'A 16th-century church with an adjoining archaeological museum.', image: '/images/goa/highlight-st-francis.jpg' },
-      { name: 'Goa State Museum', blurb: 'Sculptures, coins and manuscripts tracing the state\'s layered history.', image: '/images/goa/highlight-state-museum.jpg' },
+      { name: 'Basilica of Bom Jesus', blurb: 'UNESCO-listed baroque basilica holding the remains of St. Francis Xavier since 1605.', image: `${import.meta.env.BASE_URL}images/goa/highlight-bom-jesus.webp` },
+      { name: 'Sé Cathedral', blurb: 'One of the largest churches in Asia, known for its Golden Bell.', image: `${import.meta.env.BASE_URL}images/goa/highlight-se-cathedral.webp` },
+      { name: 'Church of St. Francis of Assisi', blurb: 'A 16th-century church with an adjoining archaeological museum.', image: `${import.meta.env.BASE_URL}images/goa/highlight-st-francis.jpg` },
+      { name: 'Goa State Museum', blurb: 'Sculptures, coins and manuscripts tracing the state\'s layered history.', image: `${import.meta.env.BASE_URL}images/goa/highlight-state-museum.webp` },
     ],
     gallery: [
       `${import.meta.env.BASE_URL}images/goa/gallery-churches-1.jpg`,
@@ -93,10 +93,10 @@ export const destinations = [
       Tip: 'Falls run fullest just after monsoon',
     },
     highlights: [
-      { name: 'Dudhsagar Falls', blurb: 'One of India\'s tallest waterfalls, reached by jeep safari through dense forest.', image: '/images/goa/highlight-dudhsagar.jpg' },
-      { name: 'Bhagwan Mahaveer Sanctuary', blurb: "Goa's largest wildlife sanctuary, home to gaur, sambar and hornbills.", image: '/images/goa/highlight-mahaveer.jpg' },
-      { name: 'Salim Ali Bird Sanctuary', blurb: 'Mangrove-lined sanctuary on the Mandovi, best visited by boat at dawn.', image: '/images/goa/highlight-salim-ali.jpg' },
-      { name: 'Mayem Lake', blurb: 'A calm freshwater lake ringed by forest, popular for boating and picnics.', image: '/images/goa/highlight-mayem.jpg' },
+      { name: 'Dudhsagar Falls', blurb: 'One of India\'s tallest waterfalls, reached by jeep safari through dense forest.', image: `${import.meta.env.BASE_URL}images/goa/highlight-dudhsagar.webp` },
+      { name: 'Bhagwan Mahaveer Sanctuary', blurb: "Goa's largest wildlife sanctuary, home to gaur, sambar and hornbills.", image: `${import.meta.env.BASE_URL}images/goa/highlight-mahaveer.jpg` },
+      { name: 'Salim Ali Bird Sanctuary', blurb: 'Mangrove-lined sanctuary on the Mandovi, best visited by boat at dawn.', image: `${import.meta.env.BASE_URL}images/goa/highlight-salim-ali.jpg` },
+      { name: 'Mayem Lake', blurb: 'A calm freshwater lake ringed by forest, popular for boating and picnics.', image: `${import.meta.env.BASE_URL}images/goa/highlight-mayem.jpg` },
     ],
     gallery: [
       `${import.meta.env.BASE_URL}images/goa/gallery-nature-1.jpg`,
@@ -121,10 +121,10 @@ export const destinations = [
       Tip: 'Modest dress required at most temples',
     },
     highlights: [
-      { name: 'Shri Mangeshi Temple', blurb: "Goa's most-visited temple, known for its distinctive seven-tier deepstambha.", image: '/images/goa/highlight-mangeshi.jpg' },
-      { name: 'Shri Shantadurga Temple', blurb: 'Dedicated to the goddess of peace, set in the Mollem temple belt.', image: '/images/goa/highlight-shantadurga.jpg' },
-      { name: 'Shri Mahalsa Temple', blurb: 'Known for its tall brass lamp tower and Sunday temple-car procession.', image: '/images/goa/highlight-mahalsa.jpg' },
-      { name: 'Shri Nagesh Temple', blurb: "One of Goa's oldest temples, with a stepped tank and old banyan tree.", image: '/images/goa/highlight-nagesh.jpg' },
+      { name: 'Shri Mangeshi Temple', blurb: "Goa's most-visited temple, known for its distinctive seven-tier deepstambha.", image: `${import.meta.env.BASE_URL}images/goa/highlight-mangeshi.jpg` },
+      { name: 'Shri Shantadurga Temple', blurb: 'Dedicated to the goddess of peace, set in the Mollem temple belt.', image: `${import.meta.env.BASE_URL}images/goa/highlight-shantadurga.jpg` },
+      { name: 'Shri Mahalsa Temple', blurb: 'Known for its tall brass lamp tower and Sunday temple-car procession.', image: `${import.meta.env.BASE_URL}images/goa/highlight-mahalsa.jpg` },
+      { name: 'Shri Nagesh Temple', blurb: "One of Goa's oldest temples, with a stepped tank and old banyan tree.", image: `${import.meta.env.BASE_URL}images/goa/highlight-nagesh.jpg` },
     ],
     gallery: [
       `${import.meta.env.BASE_URL}images/goa/gallery-temples-1.jpg`,
@@ -149,10 +149,10 @@ export const destinations = [
       Tip: 'Check the local calendar before you book',
     },
     highlights: [
-      { name: 'Goa Carnival', blurb: 'A three-day street parade of floats and music, held before Lent each year.', image: '/images/goa/highlight-carnival.jpg' },
-      { name: 'Feast of St. Francis Xavier', blurb: 'A major pilgrimage feast held every December at the Basilica of Bom Jesus.', image: '/images/goa/highlight-feast.jpg' },
-      { name: 'Shigmo', blurb: "Goa's spring festival, with folk dance processions across the state.", image: '/images/goa/highlight-shigmo.jpg' },
-      { name: 'Sao Joao', blurb: 'A monsoon feast where locals leap into wells and rivers to celebrate.', image: '/images/goa/highlight-sao-joao.jpg' },
+      { name: 'Goa Carnival', blurb: 'A three-day street parade of floats and music, held before Lent each year.', image: `${import.meta.env.BASE_URL}images/goa/highlight-carnival.jpg` },
+      { name: 'Feast of St. Francis Xavier', blurb: 'A major pilgrimage feast held every December at the Basilica of Bom Jesus.', image: `${import.meta.env.BASE_URL}images/goa/highlight-feast.jpg` },
+      { name: 'Shigmo', blurb: "Goa's spring festival, with folk dance processions across the state.", image: `${import.meta.env.BASE_URL}images/goa/highlight-shigmo.png` },
+      { name: 'Sao Joao', blurb: 'A monsoon feast where locals leap into wells and rivers to celebrate.', image: `${import.meta.env.BASE_URL}images/goa/highlight-sao-joao.jpg` },
     ],
     gallery: [
       `${import.meta.env.BASE_URL}images/goa/gallery-festivals-1.jpg`,
