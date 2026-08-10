@@ -69,7 +69,7 @@ export default function Project() {
             <span className="eyebrow">Where to start</span>
             <div className="project-highlights__grid">
               {project.highlights.map((h) => (
-                <HighlightCard key={h.name} highlight={h} />
+                <HighlightCard key={h.name} highlight={h} parentSlug={project.slug} />
               ))}
             </div>
           </div>
@@ -98,20 +98,21 @@ export default function Project() {
   )
 }
 
-function HighlightCard({ highlight }) {
+function HighlightCard({ highlight, parentSlug }) {
   const ref = useRef(null)
   return (
     <motion.div
       ref={ref}
-      className="highlight-card"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5 }}
     >
-      <div className="highlight-card__image ph-tone" style={{ backgroundImage: `url(${highlight.image})` }} />
-      <h3>{highlight.name}</h3>
-      <p>{highlight.blurb}</p>
+      <Link to={`/destinations/${parentSlug}/${highlight.slug}`} className="highlight-card">
+        <div className="highlight-card__image ph-tone" style={{ backgroundImage: `url(${highlight.image})` }} />
+        <h3>{highlight.name}</h3>
+        <p>{highlight.blurb}</p>
+      </Link>
     </motion.div>
   )
 }
