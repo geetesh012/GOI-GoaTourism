@@ -108,7 +108,7 @@ function HighlightCard({ highlight, parentSlug }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5 }}
     >
-      <Link to={`/destinations/${parentSlug}/${highlight.slug}`} className="highlight-card">
+      <Link to={`/destinations/${parentSlug}/${highlight.slug}`} className="highlight-card" data-cursor-text="View">
         <div className="highlight-card__image ph-tone" style={{ backgroundImage: `url(${highlight.image})` }} />
         <h3>{highlight.name}</h3>
         <p>{highlight.blurb}</p>

@@ -71,7 +71,7 @@ export default function Highlight() {
         )}
       </section>
 
-      <Link to={`/destinations/${parent.slug}/${next.slug}`} className="project-next">
+      <Link to={`/destinations/${parent.slug}/${next.slug}`} className="project-next" data-cursor-text="Next">
         <span className="eyebrow">More in {parent.name}</span>
         <h2>{next.name}</h2>
         <span className="project-next__arrow">→</span>

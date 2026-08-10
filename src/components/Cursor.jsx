@@ -1,59 +1,76 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 
+// Fixed dot + trailing ring. Disables itself on touch devices (no fine
+// pointer) and skips the spring lag entirely under prefers-reduced-motion,
+// so it never fights the OS/browser's own motion preference.
 export default function Cursor() {
-  const dotRef = useRef(null)
-  const ringRef = useRef(null)
-  const [hoverTarget, setHoverTarget] = useState(false)
-  const [isTouch, setIsTouch] = useState(false)
+  const [enabled, setEnabled] = useState(false)
+  const [hovering, setHovering] = useState(false)
+  const [label, setLabel] = useState('')
+
+  const cx = useMotionValue(-100)
+  const cy = useMotionValue(-100)
+
+  const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const springConfig = reduced ? { stiffness: 1000, damping: 100, mass: 0.1 } : { stiffness: 280, damping: 26, mass: 0.5 }
+  const ringX = useSpring(cx, springConfig)
+  const ringY = useSpring(cy, springConfig)
 
   useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      setIsTouch(true)
-      return
-    }
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const apply = () => setEnabled(mq.matches)
+    apply()
+    mq.addEventListener('change', apply)
+    return () => mq.removeEventListener('change', apply)
+  }, [])
 
-    const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-    const ring = { x: pos.x, y: pos.y }
+  useEffect(() => {
+    if (!enabled) return
+    document.body.classList.add('custom-cursor-active')
 
     const move = (e) => {
-      pos.x = e.clientX
-      pos.y = e.clientY
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${pos.x}px, ${pos.y}px)`
-      }
+      cx.set(e.clientX)
+      cy.set(e.clientY)
     }
-
     const over = (e) => {
-      setHoverTarget(!!e.target.closest('a, button, .project-card, input, textarea'))
-    }
-
-    let raf
-    const animateRing = () => {
-      ring.x += (pos.x - ring.x) * 0.18
-      ring.y += (pos.y - ring.y) * 0.18
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate(${ring.x}px, ${ring.y}px)`
+      const target = e.target.closest('a, button, [data-cursor]')
+      if (target) {
+        setHovering(true)
+        setLabel(target.dataset.cursorText || '')
       }
-      raf = requestAnimationFrame(animateRing)
+    }
+    const out = (e) => {
+      const target = e.target.closest('a, button, [data-cursor]')
+      if (target) {
+        setHovering(false)
+        setLabel('')
+      }
     }
 
     window.addEventListener('mousemove', move)
-    window.addEventListener('mouseover', over)
-    raf = requestAnimationFrame(animateRing)
-
+    document.addEventListener('mouseover', over)
+    document.addEventListener('mouseout', out)
     return () => {
+      document.body.classList.remove('custom-cursor-active')
       window.removeEventListener('mousemove', move)
-      window.removeEventListener('mouseover', over)
-      cancelAnimationFrame(raf)
+      document.removeEventListener('mouseover', over)
+      document.removeEventListener('mouseout', out)
     }
-  }, [])
+  }, [enabled, cx, cy])
 
-  if (isTouch) return null
+  if (!enabled) return null
 
   return (
     <>
-      <div ref={dotRef} className="cursor-dot" />
-      <div ref={ringRef} className={`cursor-ring ${hoverTarget ? 'cursor-ring--active' : ''}`} />
+      <motion.div className="cursor-wrap" style={{ x: cx, y: cy }}>
+        <div className={`cursor-dot ${hovering ? 'is-hovering' : ''}`} />
+      </motion.div>
+      <motion.div className="cursor-wrap" style={{ x: ringX, y: ringY }}>
+        <div className={`cursor-ring ${hovering ? 'is-hovering' : ''}`}>
+          {label && <span className="cursor-label">{label}</span>}
+        </div>
+      </motion.div>
     </>
   )
 }

@@ -164,7 +164,7 @@ function Philosophy({ progress, isMobile }) {
     <section className="panel panel--stone philosophy" id="section-philosophy">
       <div className="philosophy__text">
         <span className="eyebrow" style={{ color: 'var(--bronze)' }}>
-          Approach
+          Our Approach
         </span>
         <div className="reveal-mask">
           <h2 ref={headingRef}>
@@ -276,7 +276,7 @@ function ProjectCard({ project, progress, range, isMobile }) {
   }, [])
 
   return (
-    <Link to={`/destinations/${project.slug}`} className="project-card" ref={cardRef}>
+    <Link to={`/destinations/${project.slug}`} className="project-card" ref={cardRef} data-cursor-text="Explore">
       <div ref={imgRef} className="project-card__bg-clip">
         {project.video ? (
           <motion.video

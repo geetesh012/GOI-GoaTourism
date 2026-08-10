@@ -29,7 +29,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destinations/:slug" element={<Project />} />
-        <Route path="/destinations/:slug" element={<Project />} />
+        <Route path="/destinations/:slug/:highlightSlug" element={<Highlight />} />
         <Route
           path="/destinations/:slug/:highlightSlug"
           element={<Highlight />}
