@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Preloader from "./components/Preloader";
 import Cursor from "./components/Cursor";
 import Home from "./pages/Home";
@@ -15,8 +15,6 @@ export default function App() {
     startSmoothScroll();
   }, []);
 
-  // reset scroll position on route change so a new page never opens
-  // mid-scroll from wherever the previous page left off
   useEffect(() => {
     getLenis()?.scrollTo(0, { immediate: true });
     window.scrollTo(0, 0);
@@ -29,11 +27,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destinations/:slug" element={<Project />} />
-        <Route path="/destinations/:slug/:highlightSlug" element={<Highlight />} />
         <Route
           path="/destinations/:slug/:highlightSlug"
           element={<Highlight />}
         />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   );
