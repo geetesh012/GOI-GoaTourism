@@ -21,7 +21,7 @@ export default function Home() {
   const containerRef = useRef(null)
   const [isMobile, setIsMobile] = useState(false)
   const [progress, setProgress] = useState(0)
-  const [sectionLabel, setSectionLabel] = useState('01 / 06')
+  const [sectionLabel, setSectionLabel] = useState('01 / 07')
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function Home() {
     for (let i = 0; i < SECTION_LIST.length; i++) {
       if (v >= SECTION_LIST[i][2] - 0.001) idx = i
     }
-    setSectionLabel(`${SECTION_LIST[idx][0]} / 06`)
+    setSectionLabel(`${SECTION_LIST[idx][0]} / 07`)
   })
 
   const goTo = (fraction) => {
@@ -88,6 +88,7 @@ export default function Home() {
             {destinations.map((p, i) => (
               <ProjectCard key={p.num} project={p} progress={scrollYProgress} range={PROJECT_RANGES[i]} isMobile={isMobile} />
             ))}
+            <MapCTA />
             <Closing progress={scrollYProgress} isMobile={isMobile} />
             <Contact />
           </motion.div>
@@ -309,6 +310,23 @@ function ProjectCard({ project, progress, range, isMobile }) {
         <span className="tag">{project.status}</span>
       </div>
     </Link>
+  )
+}
+
+function MapCTA() {
+  return (
+    <section className="panel panel--stone map-cta" id="section-mapCta">
+      <span className="eyebrow" style={{ color: 'var(--bronze)' }}>
+        Prefer to see it laid out?
+      </span>
+      <h2>
+        All 24, on <em style={{ color: 'var(--bronze-light)' }}>one map</em>
+      </h2>
+      <p>Every beach, temple, church, and trail — filterable by category, pinned to where it actually is.</p>
+      <Link to="/map" className="map-cta__link">
+        Open the map →
+      </Link>
+    </section>
   )
 }
 

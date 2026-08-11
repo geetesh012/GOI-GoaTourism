@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import Home from "./pages/Home";
 import Project from "./pages/Project";
 import Highlight from "./pages/Highlight";
+import MapPage from "./pages/Map";
 import { destinations } from "./data/content";
 
 export const routes = [
@@ -12,12 +13,10 @@ export const routes = [
     entry: "src/Layout.jsx",
     children: [
       { index: true, element: <Home /> },
+      { path: "map", element: <MapPage /> },
       {
         path: "destinations/:slug",
         element: <Project />,
-        // tells vite-react-ssg which real URLs to prerender for this
-        // dynamic route — pulled straight from content.js, so adding a
-        // new destination there automatically gets its own static page
         getStaticPaths: () => destinations.map((d) => `destinations/${d.slug}`),
       },
       {
